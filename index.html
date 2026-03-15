@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: white;
+        }
+
+        .navbar1 {
+            background-color: #0a2472;
+        }
+
+        /* Carousel wrapper */
+        .carousel-wrapper {
+            width: 100%;
+            max-width: 680px;
+            /* slightly smaller */
+            margin: 25px auto;
+        }
+
+        /* Carousel container */
+        #campusCarousel {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Maintain 16:9 ratio */
+        .carousel-item {
+            aspect-ratio: 16/9;
+        }
+
+        /* Image styling */
+        .carousel-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Arrow area */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 8%;
+        }
+
+        /* Mobile */
+        @media (max-width:768px) {
+            .carousel-wrapper {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar1" style="height:40px;">
+        <div class="container-fluid">
+
+
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="./logooo1.png" alt="Logo" width="35" height="35" class="rounded-circle"
+                    style="object-fit:cover;">
+                <span style="width:20px;"></span>
+
+                <img src="./icons8-home-24.png" alt="Home" width="24" height="24" style="filter:invert(100%);">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+                <ul class="navbar-nav ms-auto align-items-center">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+                            Menu
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Logout here</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item ms-2">
+                        <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">
+                            About
+                        </a>
+                    </li>
+
+                </ul>
+
+
+                <form class="d-flex ms-3">
+                    <input class="form-control form-control-sm" type="search" placeholder="Search">
+                </form>
+
+
+                <div class="ms-3">
+                    <a href="index2.html" class="btn btn-light btn-sm" style="background-color:#ADD8E6;">
+                        Login
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </nav>
+    <div class="carousel-wrapper">
+        <div id="campusCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./scanqr.png" class="carousel-img" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="./shortestpath.png" class="carousel-img" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="findlabs.png" class="carousel-img" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="./roomupdates.png" class="carousel-img" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="facultydirectory.png" class="carousel-img" alt="">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#campusCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#campusCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+        </div>
+    </div>
+    <div class="d-flex justify-content-center" style="gap: 10px;">
+        <div class="card" style="width: 18rem;">
+            <img src="image.png" class="card-img-top" alt="...">
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="c2.png" class="card-img-top" alt="...">
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="c3.png" class="card-img-top" alt="...">
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="c4.png" class="card-img-top" alt="...">
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
