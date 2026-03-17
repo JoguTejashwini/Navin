@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan QR</title>
+
+    <!-- QR Library -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: black;
+        }
+
+        /* full screen camera */
+        #reader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* force video full screen */
+        #reader video {
+            width: 100vw !important;
+            height: 100vh !important;
+            object-fit: cover;
+        }
+
+        /* overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        /* scan box */
+
+
+        /* text */
+        .scan-text {
+            color: white;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- camera -->
+    <div id="reader"></div>
+
+    <div class="overlay">
+        <p class="scan-text">Align QR inside box</p>
+    </div>
+
+    <script>
+        const scanner = new Html5Qrcode("reader");
+
+        scanner.start(
+            { facingMode: "environment" },
+            {
+                fps: 10,
+                qrbox: { width: 250, height: 250 }
+            },
+            (decodedText) => {
+                scanner.stop();
+                localStorage.setItem("qr", decodedText);
+                window.location.href = "destination.html";
+            }
+        );
+    </script>
+
+</body>
+
+</html>

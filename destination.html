@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: Arial;
+        }
+
+        /* map */
+        .map-container {
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* markers */
+        .marker {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+        .red {
+            background: red;
+        }
+
+        .blue {
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container text-center mt-3">
+
+        <h4>Select Destination</h4>
+
+        <!-- current location -->
+        <p id="currentLocation" class="text-muted"></p>
+
+        <!-- search -->
+        <input type="text" id="searchBox" class="form-control mb-2" placeholder="Search location...">
+
+        <!-- dropdown -->
+        <select id="dropdown" class="form-select mb-3">
+            <option value="">Select from list</option>
+            <option value="LAB">Lab</option>
+            <option value="CLASSROOM">Classroom</option>
+            <option value="OFFICE">Office</option>
+        </select>
+
+        <button class="btn btn-primary w-100" onclick="startNav()">Start Navigation</button>
+
+        <!-- map -->
+        <div class="map-container">
+            <img src="images/map.png">
+
+            <div id="currentMarker" class="marker red"></div>
+            <div id="destMarker" class="marker blue"></div>
+        </div>
+
+    </div>
+
+    <script>
+
+        // 📍 coordinates (adjust based on your map image)
+        const locations = {
+            "MAIN_GATE": { x: 20, y: 80 },
+            "LAB": { x: 70, y: 40 },
+            "CLASSROOM": { x: 50, y: 20 },
+            "OFFICE": { x: 80, y: 70 }
+        };
+
+        // get QR value
+        let raw = localStorage.getItem("qr");
+
+        // convert URL QR → location
+        let current;
+
+        if (raw && raw.includes("N7D3CF")) {
+            current = "MAIN_GATE";
+        } else {
+            current = raw;
+        }
+
+        // display location
+        document.getElementById("currentLocation").innerText =
+            "Current Location: " + current;
+
+        // place current marker
+        if (locations[current]) {
+            placeMarker("currentMarker", locations[current]);
+        }
+
+        // start navigation
+        function startNav() {
+
+            let search = document.getElementById("searchBox").value.toUpperCase();
+            let drop = document.getElementById("dropdown").value;
+
+            let destination = search || drop;
+
+            if (!destination || !locations[destination]) {
+                alert("Select valid destination");
+                return;
+            }
+
+            localStorage.setItem("destination", destination);
+
+            placeMarker("destMarker", locations[destination]);
+
+            alert("Basic shortest path shown");
+        }
+
+        // place marker function
+        function placeMarker(id, pos) {
+            let marker = document.getElementById(id);
+            marker.style.left = pos.x + "%";
+            marker.style.top = pos.y + "%";
+        }
+
+    </script>
+
+</body>
+
+</html>

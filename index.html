@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 
 <head>
@@ -11,24 +10,22 @@
 
     <style>
         body {
+            margin: 0;
             background: #f8f9fa;
             font-family: 'Segoe UI', sans-serif;
         }
 
-        /* Navbar */
-
         .navbar1 {
             background: #0a2472;
+            margin-bottom: 0;
         }
-
-        /* 3D Carousel */
 
         .coverflow-carousel {
             position: relative;
             width: 100%;
             max-width: 900px;
             height: 320px;
-            margin: 25px auto;
+            margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -50,14 +47,10 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* center */
-
         .active {
             transform: translateX(0) scale(1.2);
             z-index: 3;
         }
-
-        /* left */
 
         .left {
             transform: translateX(-300px) rotateY(45deg) scale(0.85);
@@ -65,23 +58,20 @@
             z-index: 2;
         }
 
-        /* right */
-
         .right {
             transform: translateX(300px) rotateY(-45deg) scale(0.85);
             opacity: 0.6;
             z-index: 2;
         }
 
-        /* Feature cards */
-
         .feature-cards {
             gap: 15px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 5px;
         }
 
         .card {
+            cursor: pointer;
             border: none;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -111,26 +101,25 @@
             .right {
                 transform: translateX(180px) rotateY(-40deg);
             }
-
         }
     </style>
-
 </head>
 
 <body>
 
     <!-- Navbar -->
-
     <nav class="navbar navbar-expand-lg navbar-dark navbar1">
         <div class="container-fluid">
 
             <a class="navbar-brand d-flex align-items-center text-white" href="#">
-                <img src="./logooo1.png" width="35" height="35" class="rounded-circle">
+                <img src="images/logooo1.png" width="35" height="35" class="rounded-circle">
                 <span class="ms-2 fw-bold">Navin</span>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"> <span class="navbar-toggler-icon"></span> </button>
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -151,7 +140,6 @@
                     <li class="nav-item ms-2">
                         <a class="nav-link text-white" href="#">About</a>
                     </li>
-
                 </ul>
 
                 <form class="d-flex ms-3">
@@ -168,63 +156,43 @@
         </div>
     </nav>
 
-    <!-- 3D Carousel -->
-
+    <!-- Carousel -->
     <div class="coverflow-carousel">
-
-        <div class="slide">
-            <img src="./scanqr.png">
-        </div>
-
-        <div class="slide">
-            <img src="./shortestpath.png">
-        </div>
-
-        <div class="slide">
-            <img src="./findlabs.png">
-        </div>
-
-        <div class="slide">
-            <img src="./roomupdates.png">
-        </div>
-
-        <div class="slide">
-            <img src="./facultydirectory.png">
-        </div>
-
+        <div class="slide"><img src="images/scanqr.png"></div>
+        <div class="slide"><img src="images/shortestpath.png"></div>
+        <div class="slide"><img src="images/findlabs.png"></div>
+        <div class="slide"><img src="images/roomupdates.png"></div>
+        <div class="slide"><img src="images/facultydirectory.png"></div>
     </div>
 
-    <!-- Feature Section -->
-
+    <!-- Feature Cards -->
     <div class="d-flex justify-content-center feature-cards">
+        <a href="scan.html" style="text-decoration:none;">
+            <div class="card" style="width:18rem;">
+                <img src="images/image.png" class="card-img-top">
+            </div>
+        </a>
 
         <div class="card" style="width:18rem;">
-            <img src="image.png" class="card-img-top">
+            <img src="images/c2.png" class="card-img-top">
         </div>
 
         <div class="card" style="width:18rem;">
-            <img src="c2.png" class="card-img-top">
+            <img src="images/c3.png" class="card-img-top">
         </div>
 
         <div class="card" style="width:18rem;">
-            <img src="c3.png" class="card-img-top">
+            <img src="images/c4.png" class="card-img-top">
         </div>
-
-        <div class="card" style="width:18rem;">
-            <img src="c4.png" class="card-img-top">
-        </div>
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-
         const slides = document.querySelectorAll(".slide");
         let index = 0;
 
         function updateSlides() {
-
             slides.forEach(slide => {
                 slide.classList.remove("active", "left", "right");
             });
@@ -236,7 +204,6 @@
 
             slides[left].classList.add("left");
             slides[right].classList.add("right");
-
         }
 
         setInterval(() => {
@@ -245,7 +212,6 @@
         }, 3000);
 
         updateSlides();
-
     </script>
 
 </body>
